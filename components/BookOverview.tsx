@@ -36,8 +36,9 @@ const BookOverview = ({title, author, genre, rating, totalCopies, availableCopie
               <p className="font-bebas-neue text-xl text-dark-100">Borrow Book</p>
             </Button>
         </div>
-        <div className="relative-flex flex-1 justify-center">
+        <div className="relative flex flex-1 justify-center">
           <div className="relative">
+            
             <BookCover
             variant="wide"
             className="z-10"

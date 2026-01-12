@@ -210,4 +210,68 @@
   .library-title {
     @apply mt-2 text-3xl font-semibold text-white xs:text-5xl;
   }
+  /* BOOK OVERVIEW STYLES */
+  .book-overview {
+    @apply flex flex-col-reverse items-center gap-12 sm:gap-32 xl:flex-row xl:gap-8;
+  }
+  
+  .book-overview h1 {
+    @apply text-5xl font-semibold text-white md:text-7xl;
+  }
+
+  .book-info {
+    @apply mt-7 flex flex-row flex-wrap gap-4 text-xl text-light-100;
+  }
+
+  .book-copies {
+    @apply flex flex-row flex-wrap gap-4 mt-1;
+  }
+  
+  .book-copies p {
+    @apply text-xl text-light-100;
+  }
+  
+  .book-copies p span {
+    @apply ml-2 font-semibold text-primary;
+  }
+
+  .book-description {
+    @apply mt-2 text-justify text-xl text-light-100;
+  }
+
+  .book-overview_btn {
+    @apply mt-4 min-h-14 w-fit bg-primary text-dark-100 hover:bg-primary/90 max-md:w-full;
+  }
+
+  
+  /* BOOK COVER STYLES */
+  .book-cover_extra_small {
+    @apply w-[28.95px] h-10;
+  }
+  
+  .book-cover_small {
+    @apply w-[55px] h-[76px];
+  }
+  
+  .book-cover_medium {
+    @apply w-[144px] h-[199px];
+  }
+  
+  .book-cover_regular {
+    @apply xs:w-[174px] w-[114px] xs:h-[239px] h-[169px];
+  }
+  
+  .book-cover_wide {
+    @apply xs:w-[296px] w-[256px] xs:h-[404px] h-[354px];
+  }
+
+  .borrowed-book_cover {
+    @apply py-4 lg:px-16 px-10 flex justify-center items-center w-full rounded-lg;
+  }
+
+  .borrowed-book {
+    @apply p-5 rounded-2xl xs:w-min w-full relative;
+  }
+  
+  
 }
