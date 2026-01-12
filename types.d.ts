@@ -11,6 +11,7 @@ interface Book {
     coverUrl: string;
     videoUrl: string;
     summary: string;
+    isLoanedBook?:boolean
     // createdAt: Date | null;
   }
 
@@ -48,13 +49,20 @@ interface BookCover {
   coverUrl:string
 }
 
-type BookCoverVariant = "extraSmall" | "small" | "medium" | "regular" | "wide"
+type BookCoverVariant = "extraSmall" | "small" | "medium" | "regular" | "wide" | "default"
 
 
 const variantStyles:Record<BookCoverVariant, string> = {
+  default:"book-cover",
   extraSmall:"book-cover-extra_small",
   small:"book-cover_small",
   medium:"book-cover_medium",
   regular:"book-cover_regular",
   wide:"book-cover_wide",
+}
+
+interface BookList {
+  title:string,
+  books:Book[],
+  containerClassName?:string
 }

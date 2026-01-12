@@ -10,11 +10,11 @@ const Home = () => {
     <BookOverview
     {...sampleBooks[0]}
     />
-    {/* <BookList
+    <BookList
     title="Latest Books"
     books={sampleBooks}
     containerClassName="mt-28"
-    /> */}
+    />
     </>
   )
 }
