@@ -157,7 +157,8 @@ const CustomImageUpload = ({ variant = "dark", placeholder = "Upload a file", on
           </div>
         </div>
       )}
-    {file.filePath && (
+      
+    {file.filePath && /\.(jpe?g|png|gif|webp|svg)$/i.test(file.filePath) && (
           <IKImage
           src={file.filePath}
           alt={file.filePath}
