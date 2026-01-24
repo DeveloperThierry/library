@@ -13,7 +13,7 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import config from "@/lib/config";
-import { ImageUploadProps } from "@/types";
+import { CustomImageUploadProps } from "@/types";
 import { toast } from "sonner"
 
 const {
@@ -22,7 +22,7 @@ const {
   },
 } = config;
 
-const ImageUpload = ({ variant = "dark", placeholder = "Upload a file", onFileChange }: ImageUploadProps) => {
+const CustomImageUpload = ({ variant = "dark", placeholder = "Upload a file", onFileChange }: CustomImageUploadProps) => {
   const [progress, setProgress] = useState(0);
   const [file, setFile] = useState<{ filePath: string | null }>({ filePath: null });
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -171,4 +171,4 @@ const ImageUpload = ({ variant = "dark", placeholder = "Upload a file", onFileCh
   );
 };
 
-export default ImageUpload;
+export default CustomImageUpload;

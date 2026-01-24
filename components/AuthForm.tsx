@@ -6,9 +6,9 @@ import {
   Path,
   SubmitHandler,
   UseFormReturn,
+  useForm,
 } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import {
@@ -23,7 +23,7 @@ import {
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { FIELD_NAMES, FIELD_TYPES } from "@/constants";
-import ImageUpload from "./ImageUpload";
+import CustomImageUpload from "./CustomImageUpload";
 
 const AuthForm = <T extends FieldValues>({
   type,
@@ -65,7 +65,7 @@ const AuthForm = <T extends FieldValues>({
                   </FormLabel>
                   <FormControl>
                     {field.name === "universityCard" ? (
-                      <ImageUpload />
+                      <CustomImageUpload onFileChange={field.onChange}/>
                     ) : (
                       <Input
                         required

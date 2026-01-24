@@ -1,5 +1,17 @@
 import { FieldValues } from "react-hook-form";
 
+interface CustomImageUploadProps {
+  variant?: "dark" | "light";
+  placeholder?: string;
+  onFileChange:(filePath:string) => void;
+}
+
+interface ImageUploadProps {
+  variant?: "dark" | "light";
+  placeholder?: string;
+  onFileChange:(filePath:string) => void;
+}
+
 interface Book {
     id: number;
     title: string;
