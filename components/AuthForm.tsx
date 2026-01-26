@@ -24,6 +24,8 @@ import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { FIELD_NAMES, FIELD_TYPES } from "@/constants";
 import CustomImageUpload from "./CustomImageUpload";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const AuthForm = <T extends FieldValues>({
   type,
@@ -31,13 +33,24 @@ const AuthForm = <T extends FieldValues>({
   defaultValues,
   onSubmit,
 }: AuthFormProps<T>) => {
+  const router = useRouter()
   const isSignIn = type === "SIGN_IN";
   const form: UseFormReturn<T> = useForm({
     resolver: zodResolver(schema),
     defaultValues: defaultValues as DefaultValues<T>,
   });
 
-  const handleSubmit: SubmitHandler<T> = async (data) => {};
+  const handleSubmit: SubmitHandler<T> = async (data) => {
+    const result = await onSubmit(data)
+
+    if (result.success){
+      toast.success(isSignIn ? "Signed in successfully" : "Signed up successfully")
+
+      router.push("/")
+    } else {
+      toast.error(isSignIn ? "Error signing in" : "Error signing up")
+    }
+  };
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-2xl font-semibold text-white">
