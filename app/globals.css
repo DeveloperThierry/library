@@ -6,8 +6,8 @@
 @theme {
   /* Fonts */
   --font-ibm-plex-sans: "IBM Plex Sans", sans-serif;
-  --font-bebas-neue: var(--font-bebas-neue);
-
+  /* --font-bebas-neue: var(--font-bebas-neue); */
+  --font-bebas-neue: "Bebas Neue", sans-serif;
   /* System Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
