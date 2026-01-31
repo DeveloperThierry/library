@@ -87,9 +87,20 @@
     @apply min-h-14 border border-gray-100 bg-light-600 p-4 text-base font-semibold placeholder:font-normal placeholder:text-slate-500;
   }
 
-  .admin-search {
-    @apply flex border border-gray-100 min-h-14 items-center gap-1 rounded-md bg-light-600 px-4 lg:max-w-md w-full;
-  }
+  /* Header Container */
+.admin-header {
+  @apply flex lg:items-end items-start justify-between lg:flex-row flex-col gap-5 sm:mb-10 mb-5;
+}
+
+/* Search Bar Wrapper */
+.admin-search {
+  @apply flex border border-gray-100 min-h-14 items-center gap-1 rounded-md bg-light-600 px-4 lg:max-w-md w-full;
+}
+
+/* Search Input Field */
+.admin-search_input {
+  @apply w-full border-0 shadow-none bg-transparent outline-none focus:outline-none focus:ring-0 focus:border-0;
+}
 
   /* Book Covers - Original Ratios */
   .book-cover_extra_small { @apply w-[28.95px] h-10; }
