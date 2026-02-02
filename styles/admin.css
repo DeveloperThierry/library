@@ -82,11 +82,16 @@
     @apply w-full min-h-14 rounded-xl font-bold text-base text-light-800;
   }
 
-  /* Book Forms & Inputs */
-  .book-form_input {
-    @apply min-h-14 border border-gray-100 bg-light-600 p-4 text-base font-semibold placeholder:font-normal placeholder:text-slate-500;
-  }
 
+  /* Book Form Inputs */
+.book-form_input {
+  @apply min-h-14 border border-gray-100 bg-light-600 p-4 text-base font-semibold placeholder:font-normal placeholder:text-slate-500 ;
+}
+
+/* Book Form Action Button */
+.book-form_btn {
+  @apply min-h-14 w-full bg-primary-admin hover:bg-primary-admin/95 ;
+}
   /* Header Container */
 .admin-header {
   @apply flex lg:items-end items-start justify-between lg:flex-row flex-col gap-5 sm:mb-10 mb-5;
@@ -100,6 +105,22 @@
 /* Search Input Field */
 .admin-search_input {
   @apply w-full border-0 shadow-none bg-transparent outline-none focus:outline-none focus:ring-0 focus:border-0;
+}
+
+.color-picker {
+  @apply flex min-h-14 flex-row items-center gap-3 rounded-md border border-gray-100 bg-light-600 p-4 text-base font-semibold text-dark-400;
+}
+
+.hex-input {
+  @apply h-full flex-1 bg-transparent font-sans outline-none;
+}
+
+.hex-color-picker {
+  @apply absolute left-0 top-full z-50 mt-3;
+}
+
+.back-btn {
+  @apply mb-10 w-fit border border-light-300 bg-white text-xs font-medium text-dark-200 hover:bg-light-300;
 }
 
   /* Book Covers - Original Ratios */
@@ -137,4 +158,7 @@
   .user-card .name {
     @apply font-medium mt-3 text-dark-400 line-clamp-1 w-full break-words;
   }
+  .back-btn {
+  @apply mb-10 w-fit border border-light-300 bg-white text-xs font-medium text-dark-200 hover:bg-light-300;
+}
 }

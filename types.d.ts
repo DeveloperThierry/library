@@ -88,3 +88,8 @@ interface AuthFormProps<T extends FieldValues> {
   onSubmit: (data: T) => Promise<{ success: boolean; error?: string }>;
   type: "SIGN_IN" | "SIGN_UP";
 }
+
+
+interface BookFormProps extends Partial<Book> {
+  type?: "create" | "update";
+}
