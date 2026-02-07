@@ -28,6 +28,7 @@ import { useRouter } from "next/navigation";
 import CustomFileUpload from "@/components/CustomFileUpload";
 import { bookSchema } from "@/lib/validations";
 import { Textarea } from "@/components/ui/textarea";
+import ColorPicker from "./ColorPicker";
 
 const BookForm = ({ type, ...book }: BookFormProps) => {
   const router = useRouter();
@@ -190,7 +191,12 @@ const BookForm = ({ type, ...book }: BookFormProps) => {
               <FormLabel className="text-base font-normal text-dark-500">
                 Primary Color
               </FormLabel>
-              <FormControl>{/* Color Picker */}</FormControl>
+              <FormControl>
+                <ColorPicker
+                  value={field.value}
+                  onPickerChange={field.onChange}
+                />
+              </FormControl>
 
               <FormMessage />
             </FormItem>

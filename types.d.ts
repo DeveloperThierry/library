@@ -1,5 +1,10 @@
 import { FieldValues } from "react-hook-form";
 
+interface ColorPickerProps {
+  value?: string;
+  onPickerChange: (color: string) => void;
+}
+
 interface CustomFileUploadProps {
   type:'image'|'video'
   accept:string
