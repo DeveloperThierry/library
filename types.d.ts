@@ -1,12 +1,18 @@
 import { FieldValues } from "react-hook-form";
 
-interface CustomImageUploadProps {
+interface CustomFileUploadProps {
+  type:'image'|'video'
+  accept:string
+  folder:string
   variant?: "dark" | "light";
   placeholder?: string;
   onFileChange:(filePath:string) => void;
 }
 
-interface ImageUploadProps {
+interface FileUploadProps {
+  type:'image'|'video'
+  accept:string
+  folder:string
   variant?: "dark" | "light";
   placeholder?: string;
   onFileChange:(filePath:string) => void;

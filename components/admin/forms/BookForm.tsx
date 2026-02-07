@@ -25,7 +25,7 @@ import Link from "next/link";
 import { FIELD_NAMES, FIELD_TYPES } from "@/constants";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import CustomImageUpload from "@/components/CustomImageUpload";
+import CustomFileUpload from "@/components/CustomFileUpload";
 import { bookSchema } from "@/lib/validations";
 import { Textarea } from "@/components/ui/textarea";
 
@@ -174,13 +174,15 @@ const BookForm = ({ type, ...book }: BookFormProps) => {
               <FormLabel className="text-base font-normal text-dark-500">
                 Book Image
               </FormLabel>
-              <FormControl>{/* File Upload */}</FormControl>
+              <FormControl>
+                <CustomFileUpload type="image" accept="image/*" folder="books/covers" variant="light" onFileChange={field.onChange} />
+              </FormControl>
 
               <FormMessage />
             </FormItem>
           )}
         />
-          <FormField
+        <FormField
           control={form.control}
           name={"coverColor"}
           render={({ field }) => (
@@ -188,15 +190,13 @@ const BookForm = ({ type, ...book }: BookFormProps) => {
               <FormLabel className="text-base font-normal text-dark-500">
                 Primary Color
               </FormLabel>
-              <FormControl>
-               {/* Color Picker */}
-              </FormControl>
+              <FormControl>{/* Color Picker */}</FormControl>
 
               <FormMessage />
             </FormItem>
           )}
         />
-          <FormField
+        <FormField
           control={form.control}
           name={"description"}
           render={({ field }) => (
@@ -205,10 +205,11 @@ const BookForm = ({ type, ...book }: BookFormProps) => {
                 Book Description
               </FormLabel>
               <FormControl>
-                <Textarea placeholder="Book description"
-                {...field}
-                rows={10}
-                className="book-form_input"
+                <Textarea
+                  placeholder="Book description"
+                  {...field}
+                  rows={10}
+                  className="book-form_input"
                 />
               </FormControl>
 
@@ -216,7 +217,7 @@ const BookForm = ({ type, ...book }: BookFormProps) => {
             </FormItem>
           )}
         />
-         <FormField
+        <FormField
           control={form.control}
           name={"videoUrl"}
           render={({ field }) => (
@@ -224,13 +225,15 @@ const BookForm = ({ type, ...book }: BookFormProps) => {
               <FormLabel className="text-base font-normal text-dark-500">
                 Book Trailer
               </FormLabel>
-              <FormControl>{/* File Upload */}</FormControl>
+              <FormControl>
+              <CustomFileUpload type="video" accept="video/*" folder="books/videos" variant="light" onFileChange={field.onChange} />
+              </FormControl>
 
               <FormMessage />
             </FormItem>
           )}
         />
-          <FormField
+        <FormField
           control={form.control}
           name={"summary"}
           render={({ field }) => (
@@ -239,10 +242,11 @@ const BookForm = ({ type, ...book }: BookFormProps) => {
                 Book Summary
               </FormLabel>
               <FormControl>
-                <Textarea placeholder="Book summary"
-                {...field}
-                rows={5}
-                className="book-form_input"
+                <Textarea
+                  placeholder="Book summary"
+                  {...field}
+                  rows={5}
+                  className="book-form_input"
                 />
               </FormControl>
 
@@ -251,11 +255,8 @@ const BookForm = ({ type, ...book }: BookFormProps) => {
           )}
         />
 
-        <Button 
-        type="submit"
-        className="book-form_btn text-white"
-        >
-            Add Book to Library
+        <Button type="submit" className="book-form_btn text-white">
+          Add Book to Library
         </Button>
       </form>
     </Form>

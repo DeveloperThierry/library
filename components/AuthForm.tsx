@@ -23,7 +23,7 @@ import {
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { FIELD_NAMES, FIELD_TYPES } from "@/constants";
-import CustomImageUpload from "./CustomImageUpload";
+import CustomFileUpload from "./CustomFileUpload";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
@@ -33,7 +33,7 @@ const AuthForm = <T extends FieldValues>({
   defaultValues,
   onSubmit,
 }: AuthFormProps<T>) => {
-  const router = useRouter()
+  const router = useRouter();
   const isSignIn = type === "SIGN_IN";
   const form: UseFormReturn<T> = useForm({
     resolver: zodResolver(schema),
@@ -41,14 +41,16 @@ const AuthForm = <T extends FieldValues>({
   });
 
   const handleSubmit: SubmitHandler<T> = async (data) => {
-    const result = await onSubmit(data)
+    const result = await onSubmit(data);
 
-    if (result.success){
-      toast.success(isSignIn ? "Signed in successfully" : "Signed up successfully")
+    if (result.success) {
+      toast.success(
+        isSignIn ? "Signed in successfully" : "Signed up successfully"
+      );
 
-      router.push("/")
+      router.push("/");
     } else {
-      toast.error(isSignIn ? "Error signing in" : "Error signing up")
+      toast.error(isSignIn ? "Error signing in" : "Error signing up");
     }
   };
   return (
@@ -78,7 +80,7 @@ const AuthForm = <T extends FieldValues>({
                   </FormLabel>
                   <FormControl>
                     {field.name === "universityCard" ? (
-                      <CustomImageUpload onFileChange={field.onChange}/>
+                      <CustomFileUpload type="image" accept="image/*" placeholder="Upload your ID" folder="ids" variant="dark" onFileChange={field.onChange} />
                     ) : (
                       <Input
                         required
@@ -90,14 +92,17 @@ const AuthForm = <T extends FieldValues>({
                       />
                     )}
                   </FormControl>
-                 
+
                   <FormMessage />
                 </FormItem>
               )}
             />
           ))}
 
-          <Button type="submit" className="form-btn"> {isSignIn ? "Sign In" : "Sign Up"}</Button>
+          <Button type="submit" className="form-btn">
+            {" "}
+            {isSignIn ? "Sign In" : "Sign Up"}
+          </Button>
         </form>
       </Form>
       <p className="text-center text-base font-medium">
