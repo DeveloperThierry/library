@@ -22,10 +22,16 @@ export const bookSchema = z.object({
   rating: z.coerce.number().min(1).max(5),
   totalCopies: z.coerce.number().int().positive().lte(10000),
   coverUrl: z.string().nonempty(),
+  // coverColor: z
+  //   .string()
+  //   .trim()
+  //   .regex(/^#[0-9A-F]{6}$/i),
   coverColor: z
-    .string()
-    .trim()
-    .regex(/^#[0-9A-F]{6}$/i),
+  .string()
+  .trim()
+  .regex(/^#?([0-9A-F]{3}|[0-9A-F]{6})$/i, {
+    message: "Primary color must be a valid hex code (e.g., #000000)",
+  }),
   videoUrl: z.string().nonempty(),
   summary: z.string().trim().min(10),
 });

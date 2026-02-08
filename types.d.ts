@@ -11,6 +11,7 @@ interface CustomFileUploadProps {
   folder:string
   variant?: "dark" | "light";
   placeholder?: string;
+  value?:string;
   onFileChange:(filePath:string) => void;
 }
 
@@ -20,6 +21,7 @@ interface FileUploadProps {
   folder:string
   variant?: "dark" | "light";
   placeholder?: string;
+  value?:string;
   onFileChange:(filePath:string) => void;
 }
 

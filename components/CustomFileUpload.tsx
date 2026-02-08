@@ -30,6 +30,7 @@ const CustomFileUpload = ({
   variant = "dark",
   placeholder = "Upload a file",
   onFileChange,
+  value
 }: CustomFileUploadProps) => {
   const [progress, setProgress] = useState(0);
   const [file, setFile] = useState<{ filePath: string | null }>({

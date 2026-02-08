@@ -42,17 +42,22 @@ const BookForm = ({ type, ...book }: BookFormProps) => {
       rating: 1,
       totalCopies: 1,
       coverUrl: "",
-      coverColor: "",
+      coverColor: "#000000",
       videoUrl: "",
       summary: "",
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof bookSchema>) => {};
+  const onSubmit = async (values: z.infer<typeof bookSchema>) => {
+    console.log(values)
+  };
 
+  const onInvalid = (errors: any) => {
+    console.error("Validation Errors:", errors);
+  };
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 w-full">
+      <form onSubmit={form.handleSubmit(onSubmit, onInvalid)} className="space-y-6 w-full">
         <FormField
           control={form.control}
           name={"title"}
@@ -131,7 +136,7 @@ const BookForm = ({ type, ...book }: BookFormProps) => {
                 <Input
                   type="number"
                   min={1}
-                  max={1}
+                  max={5}
                   required
                   placeholder="book rating"
                   {...field}
@@ -193,7 +198,7 @@ const BookForm = ({ type, ...book }: BookFormProps) => {
               </FormLabel>
               <FormControl>
                 <ColorPicker
-                  value={field.value}
+                  value={field.value || "#000000"}
                   onPickerChange={field.onChange}
                 />
               </FormControl>
@@ -232,7 +237,7 @@ const BookForm = ({ type, ...book }: BookFormProps) => {
                 Book Trailer
               </FormLabel>
               <FormControl>
-              <CustomFileUpload type="video" accept="video/*" folder="books/videos" variant="light" onFileChange={field.onChange} />
+              <CustomFileUpload type="video" accept="video/*" folder="books/videos" variant="light" onFileChange={field.onChange} value={field.value}/>
               </FormControl>
 
               <FormMessage />
