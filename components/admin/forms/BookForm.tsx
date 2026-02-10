@@ -29,6 +29,7 @@ import CustomFileUpload from "@/components/CustomFileUpload";
 import { bookSchema } from "@/lib/validations";
 import { Textarea } from "@/components/ui/textarea";
 import ColorPicker from "./ColorPicker";
+import { createBook } from "@/lib/admin/actions/book";
 
 const BookForm = ({ type, ...book }: BookFormProps) => {
   const router = useRouter();
@@ -50,6 +51,15 @@ const BookForm = ({ type, ...book }: BookFormProps) => {
 
   const onSubmit = async (values: z.infer<typeof bookSchema>) => {
     console.log(values)
+    const result = await createBook(values)
+
+    if (result.success) {
+      toast.success("Book added successfully");
+
+      router.push(`/admin/books/${result.data.id}`);
+    } else {
+      toast.error("Error adding book");
+    }
   };
 
   const onInvalid = (errors: any) => {
