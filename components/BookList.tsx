@@ -1,6 +1,7 @@
 import BookCard from "./BookCard"
-
-const BookList = ({title, books, containerClassName}:BookList) => {
+import {BookListProps} from "@/types"
+const BookList = ({title, books, containerClassName}:BookListProps) => {
+  if (books.length < 2) return
   return (
     <section className={containerClassName}> 
       <h2 className="font-bebas-neue text-4xl text-light-100">

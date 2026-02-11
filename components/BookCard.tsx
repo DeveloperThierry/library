@@ -4,6 +4,7 @@ import BookCover from './BookCover'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import { Button } from './ui/button'
+import { Book } from '@/types'
 
 const BookCard = ({id, title, genre, coverColor, coverUrl,isLoanedBook=false}:Book) =>  (
     <li className={cn(isLoanedBook && "xs:w-52 w-full")} >

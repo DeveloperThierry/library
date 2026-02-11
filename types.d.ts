@@ -26,7 +26,7 @@ interface FileUploadProps {
 }
 
 interface Book {
-    id: number;
+    id: string;
     title: string;
     author: string;
     genre: string;
@@ -39,7 +39,7 @@ interface Book {
     videoUrl: string;
     summary: string;
     isLoanedBook?:boolean
-    // createdAt: Date | null;
+    createdAt: Date | null;
   }
 
   
@@ -69,7 +69,7 @@ interface BorrowBookParams {
   userId: string;
 }
 
-interface BookCover {
+interface BookCoverProps {
   className?:string
   variant?:BookCoverVariant
   coverColor:string
@@ -88,7 +88,7 @@ const variantStyles:Record<BookCoverVariant, string> = {
   wide:"book-cover_wide",
 }
 
-interface BookList {
+interface BookListProps {
   title:string,
   books:Book[],
   containerClassName?:string

@@ -2,8 +2,10 @@ import Image from 'next/image'
 import React from 'react'
 import { Button } from './ui/button'
 import BookCover from './BookCover'
+import { Book } from '@/types'
 
 const BookOverview = ({title, author, genre, rating, totalCopies, availableCopies, description, coverColor, coverUrl}:Book) => {
+  console.log(coverUrl)
   return (
     <section className="book-overview">
         <div className="flex flex-1 flex-col gap-5">

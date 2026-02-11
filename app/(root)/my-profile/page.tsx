@@ -1,10 +1,11 @@
 import { signOut } from '@/auth'
 import BookList from '@/components/BookList'
 import { Button } from '@/components/ui/button'
-import { sampleBooks } from '@/constants'
+// import { sampleBooks } from '@/constants'
 import React from 'react'
 
 const Profile = () => {
+  
   return (
     <>
     <form action={async() => {
@@ -17,9 +18,7 @@ const Profile = () => {
 
     <Button>Logout</Button>
     </form>
-    <BookList title="Borrowed Books" books={sampleBooks}>
-
-    </BookList>
+    {/* <BookList title="Borrowed Books" books={sampleBooks}/> */}
     </>
   )
 }
