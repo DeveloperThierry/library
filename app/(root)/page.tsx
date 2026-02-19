@@ -11,6 +11,7 @@ import React from 'react'
 
 const Home = async() => {
   const session = await auth();
+  const userId = session?.user?.id as string 
   const latestBooks = (await db.select().from(books).limit(10).orderBy(desc(books.createdAt))) as Book[]
   
   const result = await db.select().from(users)
@@ -18,6 +19,7 @@ const Home = async() => {
   return (
     <>
     <BookOverview
+    userId={userId}
     {...latestBooks[0]} 
     // userId={session?.user?.id as string}
     />

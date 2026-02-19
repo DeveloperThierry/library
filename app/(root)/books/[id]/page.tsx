@@ -11,6 +11,7 @@ import BookVideo from "@/components/BookVideo";
 const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
   const session = await auth();
+  const userId = session?.user?.id as string 
 
   // Fetch data based on id
   const [bookDetails] = await db
@@ -23,7 +24,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
 
   return (
     <>
-      <BookOverview {...bookDetails} id={session?.user?.id as string} />
+      <BookOverview userId={userId} {...bookDetails} id={session?.user?.id as string} />
 
       <div className="book-details">
         <div className="flex-[1.5]">

@@ -1,5 +1,14 @@
 import { FieldValues } from "react-hook-form";
 
+interface BorrowBookProps {
+  userId: string;
+  bookId: string;
+  borrowingEligibility: {
+    isEligible: boolean;
+    message: string;
+  };
+}
+
 interface ColorPickerProps {
   value?: string;
   onPickerChange: (color: string) => void;
